@@ -13,7 +13,7 @@ if ($text == "") {
 
 } else if ($text == "1") {
     // Business logic for first level response
-    $response = "CON Choose account information you want to view \n";
+    $response = "BOREPAY Choose account information you want to view \n";
     $response .= "1. Account number \n";
 
 } else if ($text == "2") {
