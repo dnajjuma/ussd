@@ -24,11 +24,9 @@ if ($text == "") {
     $response = "END Your phone number is ".$phoneNumber;
 
 } else if (strpos($text, "1*1") === 0) {
-    if (!isset($sessionData[$phoneNumber])) {
+    if (substr_count($text, '*') === 1) {
         // This is the first step after selecting option 1*1, prompt for amount
         $response = "CON Enter the amount in UGX";
-        // Store the current step in the session data
-        $sessionData[$phoneNumber] = "enter_amount";
     } else if (substr_count($text, '*') === 2) {
         // User has provided the amount, extract and process
         $amount = explode('*', $text)[2];
