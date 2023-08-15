@@ -20,20 +20,15 @@ if ($text == "") {
     // This is a terminal request. Note how we start the response with END
     $response = "END Your phone number is ".$phoneNumber;
 
-} else if (strpos($text, "1*1") === 0) { 
+} else if($text == "1*1") { 
     // This is a second level response where the user selected 1 in the first instance
-    if (substr_count($text, '*') === 1) {
-        // This is the first step after selecting option 1*1, prompt for amount
-        $response = "CON Enter the amount in UGX";
-    } else if (substr_count($text, '*') === 2) {
-        // User has provided the amount, extract and process
-        $amount = explode('*', $text)[2];
-        // Here you can process the payment logic based on the provided amount
-        $response = "END Payment of UGX $amount received. Thank you!";
-    }
+    $bill  = "2000";
+
+    // This is a terminal request. Note how we start the response with END
+    $response = "END Your borehole maintenance fee bill is ".$bill;
+
 }
 
 // Echo the response back to the API
 header('Content-type: text/plain');
 echo $response;
-?>
