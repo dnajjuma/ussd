@@ -7,14 +7,14 @@ $text        = $_POST["text"];
 
 if ($text == "") {
     // This is the first request. Note how we start the response with CON
-    $response  = "BOREPAY What would you want to check \n";
-    $response .= "1. My Account \n";
-    $response .= "2. My phone number";
+    $response  = "Welcome to BOREPAY, What would you want to do? \n";
+    $response .= "1. See my Card No";
+    $response .= "2. Phone number";
 
 } else if ($text == "1") {
     // Business logic for first level response
     $response = "BOREPAY Choose account information you want to view \n";
-    $response .= "1. Account number \n";
+    $response .= "1. Card number \n";
 
 } else if ($text == "2") {
     // Business logic for first level response
@@ -23,12 +23,13 @@ if ($text == "") {
 
 } else if($text == "1*1") { 
     // This is a second level response where the user selected 1 in the first instance
-    $accountNumber  = "ACC1001";
+    $cardNumber  = "CUI1001";
 
     // This is a terminal request. Note how we start the response with END
-    $response = "END Your account number is ".$accountNumber;
+    $response = "END Your card number is ".$cardNumber;
 
 }
+
 
 // Echo the response back to the API
 header('Content-type: text/plain');
