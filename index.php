@@ -7,14 +7,14 @@ $text        = $_POST["text"];
 
 if ($text == "") {
     // This is the first request. Note how we start the response with CON
-    $response  = "CON What would you want to check \n";
+    $response  = "CON Welcome to BorePay. What would you want to do? \n";
     $response .= "1. Payments \n";
     $response .= "2. My phone number";
 
 } else if ($text == "1") {
     // Business logic for first level response
     $response = "CON Enter card no \n";
-    $response .= "1. My fee \n";
+    $response .= "1. My bill \n";
 
 } else if ($text == "2") {
     // Business logic for first level response
@@ -26,7 +26,7 @@ if ($text == "") {
     $bill  = "2000";
 
     // This is a terminal request. Note how we start the response with END
-    $response = "END Your maintenance fee is ".$bill;
+    $response = "END Your maintenance fee bill is ".$bill;
 
 }
 
