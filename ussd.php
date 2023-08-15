@@ -7,13 +7,13 @@ $text        = $_POST["text"];
 
 if ($text == "") {
     // This is the first request. Note how we start the response with CON
-    $response  = "Welcome to BOREPAY, What would you want to do? \n";
-    $response .= "1. See my Card No";
+    $response  = "CON What would you want to do? \n";
+    $response .= "1. See my Card No \n";
     $response .= "2. Phone number";
 
 } else if ($text == "1") {
     // Business logic for first level response
-    $response = "BOREPAY Choose account information you want to view \n";
+    $response = "CON Choose account information you want to view \n";
     $response .= "1. Card number \n";
 
 } else if ($text == "2") {
