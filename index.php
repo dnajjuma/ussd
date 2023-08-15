@@ -29,8 +29,9 @@ if ($text == "") {
         $response = "CON Enter the amount in UGX";
         // Store the current step in the session data
         $sessionData[$phoneNumber] = "enter_amount";
-    } else if ($sessionData[$phoneNumber] === "enter_amount") {
-        // Define the request payload as an array
+    } else if (substr_count($text, '*') === 2) {
+        // User has provided the amount, extract and process
+        $amount = explode('*', $text)[2];
 $requestPayload = array(
     "payee" => array(
         "partyIdInfo" => array(
