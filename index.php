@@ -117,7 +117,7 @@ if ($text == "") {
     } else if (substr_count($text, '*') === 3) {
         // User has provided the correct amount, prompt for mobile money PIN
         $pin = explode('*', $text)[3];
-
+        $response = "CON Payment of UGX $transferAmount initiated with a status $currentState. Please enter Mobile Money PIN.";
         // Define the rest of your payment logic here
 
         }
