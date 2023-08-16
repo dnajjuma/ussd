@@ -56,8 +56,7 @@ $requestPayload = array(
 );
 
 // Set the URL for the request
-// $url = 'http://13.211.229.144:4040/thirdpartyTransaction/{ID}/initiate';
-$url = 'http://localhost:4040/thirdpartyTransaction/{ID}/initiate';
+$url = 'http://13.211.229.144:4040/thirdpartyTransaction/{ID}/initiate';
 
 // Initialize cURL session
 $ch = curl_init();
