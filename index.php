@@ -119,6 +119,77 @@ if ($text == "") {
     } else if (substr_count($text, '*') === 3) {
         // User has provided the correct amount, prompt for mobile money PIN
         $pin = explode('*', $text)[3];
+
+        $requestPayload = array(
+            "payee" => array(
+                "partyIdInfo" => array(
+                    "partyIdType" => "MSISDN",
+                    "partyIdentifier" => "9876543210",
+                    "fspId" => "dfspb"
+                )
+            ),
+            "payer" => array(
+                "partyIdType" => "THIRD_PARTY_LINK",
+                "partyIdentifier" => "1234567890",
+                "fspId" => "dfspa"
+            ),
+            "amountType" => "SEND",
+            "amount" => array(
+                "amount" => $amount,
+                "currency" => "UGX"
+            ),
+            "transactionType" => array(
+                "scenario" => "TRANSFER",
+                "initiator" => "PAYER",
+                "initiatorType" => "CONSUMER"
+            ),
+            "expiration" => "2044-07-15T22:17:28.985-01:00"
+        );
+        
+        // Set the URL for the request
+        $url = 'http://13.211.229.144:4040/thirdpartyTransaction/{ID}/initiate';
+        
+        // Initialize cURL session
+        $ch = curl_init();
+        
+        // Set cURL options
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($requestPayload));
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            'Content-Type: application/json'
+        ));
+        
+        // Execute cURL session and capture response
+        $response = curl_exec($ch);
+        
+        // Check for cURL errors
+        if (curl_errno($ch)) {
+            echo 'cURL error: ' . curl_error($ch);
+        } else {
+            // Close cURL session
+            curl_close($ch);
+        
+            // Decode the JSON response
+            $responseArray = json_decode($response, true);
+        
+            // Extract and display relevant information
+            $authorizationRequestId = $responseArray['authorization']['authorizationRequestId'];
+            $transactionRequestId = $responseArray['authorization']['transactionRequestId'];
+            $challenge = $responseArray['authorization']['challenge'];
+            $transferAmount = $responseArray['authorization']['transferAmount']['amount'];
+            $transferCurrency = $responseArray['authorization']['transferAmount']['currency'];
+            $currentState = $responseArray['currentState'];
+        
+            // Display the extracted information
+            // echo "Authorization Request ID: $authorizationRequestId\n";
+            // echo "Transaction Request ID: $transactionRequestId\n";
+            // echo "Challenge: $challenge\n";
+            // echo "Transfer Amount: $transferAmount $transferCurrency\n";
+            // echo "Current State: $currentState\n";
+
+             // Check if the amount is equal to 1000
         $response = "CON Payment of UGX $transferAmount initiated with a status $currentState. Please enter Mobile Money PIN.";
         // Define the rest of your payment logic here
 
