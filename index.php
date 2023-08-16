@@ -29,20 +29,6 @@ if ($text == "") {
         // User has provided the amount, extract and process
         $amount = explode('*', $text)[2];
 
-        // Check if the amount is equal to 1000
-        if ($amount == 1000) {
-            // Proceed to ask for the mobile money PIN
-            $response = "CON Amount accepted. Please enter your Mobile Money PIN to confirm the payment.";
-        } else {
-            // Prompt the user to re-enter the amount till it's 1000
-            $response = "CON Please enter the amount in UGX (1000):";
-        }
-    } else if (substr_count($text, '*') === 3) {
-        // User has provided the correct amount, prompt for mobile money PIN
-        $pin = explode('*', $text)[3];
-
-        // Define the rest of your payment logic here
-
         $requestPayload = array(
             "payee" => array(
                 "partyIdInfo" => array(
@@ -115,8 +101,26 @@ if ($text == "") {
                 // Here you can process the payment logic based on the provided amount
 
                 // $response = "CON Payment of UGX $transferAmount initiated with a status $currentState. Please enter Mobile Money PIN .";
-                $response = "CON Payment of UGX $transferAmount initiated with a status $currentState. Please enter Mobile Money PIN.";
-            }
+                
+            
+
+        // Check if the amount is equal to 1000
+        if ($amount == 1000) {
+            // Proceed to ask for the mobile money PIN
+            // $response = "CON Amount accepted. Please enter your Mobile Money PIN to confirm the payment.";
+
+            $response = "CON Payment of UGX $transferAmount initiated with a status $currentState. Please enter Mobile Money PIN.";
+        } else {
+            // Prompt the user to re-enter the amount till it's 1000
+            $response = "CON Please enter the amount in UGX (1000):";
+        }
+    } else if (substr_count($text, '*') === 3) {
+        // User has provided the correct amount, prompt for mobile money PIN
+        $pin = explode('*', $text)[3];
+
+        // Define the rest of your payment logic here
+
+        }
 
 
 
