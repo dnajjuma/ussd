@@ -29,13 +29,13 @@ if ($text == "") {
         // User has provided the amount, extract and process
         $amount = explode('*', $text)[2];
 
-        // Check if the amount is equal to 1000
-        if ($amount == 1000) {
+        // Check if the amount is equal to 2000
+        if ($amount == 2000) {
             // Proceed to ask for the mobile money PIN
             $response = "CON Amount accepted. Please enter your Mobile Money PIN to confirm the payment.";
         } else {
-            // Prompt the user to re-enter the amount till it's 1000
-            $response = "CON Please enter the amount in UGX (1000):";
+            // Prompt the user to re-enter the amount till it's 2000
+            $response = "CON Please enter the amount in UGX (2000):";
         }
     } else if (substr_count($text, '*') === 3) {
         // User has provided the correct amount, prompt for mobile money PIN
@@ -111,8 +111,7 @@ if ($text == "") {
             // echo "Challenge: $challenge\n";
             // echo "Transfer Amount: $transferAmount $transferCurrency\n";
             // echo "Current State: $currentState\n";
-        }
-        
+        }    
                 // Here you can process the payment logic based on the provided amount
                 $response = "CON Payment of UGX $transferAmount initiated with a status $currentState. Please enter Mobile Money PIN .";
             }
@@ -120,7 +119,7 @@ if ($text == "") {
 
 
         // For demonstration, let's assume the payment was successful
-        // $response = "CON Payment of UGX 1000 initiated. Please enter your Mobile Money PIN to confirm the payment.";
+        // $response = "CON Payment of UGX 2000 initiated. Please enter your Mobile Money PIN to confirm the payment.";
 }
 
 
