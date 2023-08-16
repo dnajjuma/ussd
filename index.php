@@ -115,7 +115,7 @@ if ($text == "") {
                 // Here you can process the payment logic based on the provided amount
 
                 // $response = "CON Payment of UGX $transferAmount initiated with a status $currentState. Please enter Mobile Money PIN .";
-                $response = "CON Payment of UGX {$transferAmount} initiated with a status {$currentState}. Please enter Mobile Money PIN.";
+                $response = "CON Payment of UGX $transferAmount initiated with a status $currentState. Please enter Mobile Money PIN.";
             }
 
 
