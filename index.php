@@ -92,15 +92,12 @@ if ($text == "") {
                 $transferCurrency = $responseArray['authorization']['transferAmount']['currency'];
                 $currentState = $responseArray['currentState'];
             }
-
-            
+           
                     // Check if the amount is equal to 1000
-                    if ($amount == 1000) {
+                    if ($amount >= 1000) {
                         // Proceed to ask for the mobile money PIN
                         $response = "CON Payment of UGX $transferAmount initiated with a status $currentState. Please enter your Mobile Money PIN to confirm the payment.";
-                        
-                      
-                        
+           
                     } else {
                         // Prompt the user to re-enter the amount till it's 1000
                         $response = "CON Please enter the amount in UGX (1000):";
@@ -112,7 +109,7 @@ if ($text == "") {
                     // Define the rest of your payment logic here
 
                     // For demonstration, let's assume the payment was successful
-                    // $response = "CON Payment of UGX 1000 initiated. Please enter your Mobile Money PIN to confirm the payment.";
+                    $response = "CON Payment was successful";
                 }
             }
 
