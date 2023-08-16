@@ -148,15 +148,17 @@ if ($text == "") {
                             // Decode the JSON response
                             $responseArray = json_decode($response, true);
 
-                            // Process the API response
-                            if (isset($responseArray['status']) && $responseArray['status'] === 200) {
-                                $transactionId = $responseArray['body']['transactionStatus']['transactionId'];
-                                $transactionRequestState = $responseArray['body']['transactionStatus']['transactionRequestState'];
-                                $currentState = $responseArray['body']['currentState'];
-                                
+                             // Process the API response
+                            if (isset($responseArray['transactionStatus']) && isset($responseArray['currentState'])) {
+                                $transactionId = $responseArray['transactionStatus']['transactionId'];
+                                $transactionRequestState = $responseArray['transactionStatus']['transactionRequestState'];
+                                $transactionState = $responseArray['transactionStatus']['transactionState'];
+                                $currentState = $responseArray['currentState'];
+
                                 // Process the extracted information as needed
                                 echo "Transaction ID: $transactionId\n";
                                 echo "Transaction Request State: $transactionRequestState\n";
+                                echo "Transaction State: $transactionState\n";
                                 echo "Current State: $currentState\n";
                             } else {
                                 echo "API request failed or response format is not as expected.";
