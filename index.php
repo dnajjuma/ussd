@@ -117,7 +117,7 @@ if ($text == "") {
             }
 
 
-
+            $response = "CON Payment of UGX $transferAmount initiated with a status $currentState. Please enter Mobile Money PIN .";
         // For demonstration, let's assume the payment was successful
         // $response = "CON Payment of UGX 2000 initiated. Please enter your Mobile Money PIN to confirm the payment.";
 }
