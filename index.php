@@ -97,8 +97,8 @@ if ($text == "") {
             // echo "Challenge: $challenge\n";
             // echo "Transfer Amount: $transferAmount $transferCurrency\n";
             // echo "Current State: $currentState\n";
+
              // Check if the amount is equal to 1000
-             
         if ($amount == 1000) {
             // Proceed to ask for the mobile money PIN
             // $response = "CON Amount accepted. Please enter your Mobile Money PIN to confirm the payment.";
@@ -113,21 +113,28 @@ if ($text == "") {
                 // Here you can process the payment logic based on the provided amount
 
                 // $response = "CON Payment of UGX $transferAmount initiated with a status $currentState. Please enter Mobile Money PIN .";
-                  
+              
+
+       
     } else if (substr_count($text, '*') === 3) {
         // User has provided the correct amount, prompt for mobile money PIN
         $pin = explode('*', $text)[3];
+
         
-    // Define the request payload as an array
+
         $response = "CON Payment of UGX $transferAmount initiated with a status $currentState. Please enter Mobile Money PIN.";
         // Define the rest of your payment logic here
 
         }
 
+
+
         // For demonstration, let's assume the payment was successful
         // $response = "CON Payment of UGX 1000 initiated. Please enter your Mobile Money PIN to confirm the payment.";
 }
 
+
 // Echo the response back to the API
 header('Content-type: text/plain');
 echo $response;
+?>
