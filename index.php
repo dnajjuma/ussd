@@ -107,13 +107,13 @@ if ($text == "") {
                     $pin = explode('*', $text)[3];
 
                                 // Check if the entered PIN is correct
-                    if ($pin === "1998") {
-                        // Payment successful confirmation text
-                        $response = "CON Payment was successful. Thank you!";
-                    } else {
-                        // Handle incorrect PIN scenario
-                        $response = "CON Incorrect PIN. Please enter your Mobile Money PIN again:";
-                    }
+                    // if ($pin === "1998") {
+                    //     // Payment successful confirmation text
+                    //     $response = "CON Payment was successful. Thank you!";
+                    // } else {
+                    //     // Handle incorrect PIN scenario
+                    //     $response = "CON Incorrect PIN. Please enter your Mobile Money PIN again:";
+                    // }
 
                     // Define the rest of your payment logic here
 
