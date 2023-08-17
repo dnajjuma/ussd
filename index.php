@@ -96,27 +96,23 @@ if ($text == "") {
         // Check if the amount is equal to 1000
         if ($amount >= 1000) {
             // Proceed to ask for the mobile money PIN
-            $response = "CON Payment of UGX $transferAmount initiated with a status $currentState. Please enter your Mobile Money PIN to confirm the payment.";
-
+            $response = "CON Payment of UGX $amount initiated with a status $currentState. Please enter your Mobile Money PIN to confirm the payment.";
         } else {
             // Prompt the user to re-enter the amount till it's 1000
-            $response = "CON Please enter the amount in UGX (1000 or more):";
+            $response = "CON Please enter the amount in UGX (1000):";
         }
     } else if (substr_count($text, '*') === 3) {
         // User has provided the correct amount, prompt for mobile money PIN
         $pin = explode('*', $text)[3];
 
-        // Define the rest of your payment logic here
-
-        // For demonstration, let's assume the payment was successful
-        // $response = "CON Payment was successful";
+        // Check if the entered PIN is correct
         if ($pin === "1998") {
-            // Assume the payment process was successful
-            $response = "CON Payment was successful";
-        } 
-    } else {
-        // Handle incorrect PIN scenario
-        $response = "CON Incorrect PIN. Please enter your Mobile Money PIN again:";
+            // Payment successful confirmation text
+            $response = "CON Payment was successful. Thank you!";
+        } else {
+            // Handle incorrect PIN scenario
+            $response = "CON Incorrect PIN. Please enter your Mobile Money PIN again:";
+        }
     }
 }
 
