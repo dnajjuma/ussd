@@ -113,10 +113,10 @@ if ($text == "") {
         if ($pin === "1998") {
             // Assume the payment process was successful
             $response = "CON Payment was successful";
-        } else {
-            // Handle incorrect PIN scenario
-            $response = "CON Incorrect PIN. Please enter your Mobile Money PIN again:";
-        }
+        } 
+    } else {
+        // Handle incorrect PIN scenario
+        $response = "CON Incorrect PIN. Please enter your Mobile Money PIN again:";
     }
 }
 
