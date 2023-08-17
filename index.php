@@ -100,7 +100,7 @@ if ($text == "") {
 
         } else {
             // Prompt the user to re-enter the amount till it's 1000
-            $response = "CON Please enter the amount in UGX (1000):";
+            $response = "CON Please enter the amount in UGX (1000 or more):";
         }
     } else if (substr_count($text, '*') === 3) {
         // User has provided the correct amount, prompt for mobile money PIN
