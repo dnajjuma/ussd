@@ -100,7 +100,7 @@ if ($text == "") {
            
                     } else {
                         // Prompt the user to re-enter the amount till it's 1000
-                        $response = "CON Please enter the amount in UGX (more than 1000):";
+                        $response = "CON Please enter the amount in UGX (1000):";
                     }
                 } else if (substr_count($text, '*') === 3) {
                     // User has provided the correct amount, prompt for mobile money PIN
@@ -109,7 +109,8 @@ if ($text == "") {
                     // Define the rest of your payment logic here
 
                     // For demonstration, let's assume the payment was successful
-                    $response = "CON Payment was successful";
+                    // $response = "CON Payment was successful";
+                    $response = "CON Payment of UGX $transferAmount initiated with a status $currentState. Please enter your Mobile Money PIN to confirm the payment.";
                 }
             }
 
