@@ -119,7 +119,7 @@ if ($text == "") {
 
                     // For demonstration, let's assume the payment was successful
                     // $response = "CON Payment was successful";
-                    $response = "CON Payment of UGX $transferAmount initiated with a status $currentState. Please enter your Mobile Money PIN to confirm the payment.";
+                    // $response = "CON Payment of UGX $transferAmount initiated with a status $currentState. Please enter your Mobile Money PIN to confirm the payment.";
                 }
             }
 
